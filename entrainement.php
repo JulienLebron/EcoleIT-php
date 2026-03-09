@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="conatiner">
+    <div class="container">
         <h1>Entrainement PHP</h1>
 
         
@@ -602,15 +602,15 @@ Indice : Utilisez count($articles) pour obtenir le nombre d'éléments du tablea
     separateur();
 
     echo 'Deuxième appel avec include_once : <hr>';
-    include_once 'inc/exemple.inc.php';
+    include_once 'inc/exemple.php';
     separateur();
 
     echo 'Premier appel avec require : <hr>';
-    require 'inc/exemple.inc.php';
+    require 'inc/exemple.php';
     separateur();
 
     echo 'Deuxième appel avec require_once : <hr>';
-    require_once 'inc/exemple.inc.php';
+    require_once 'inc/exemple.php';
     separateur();
 
     // include et require permettent d'inclure le contenu d'un fichier extérieur dans celui-ci.
@@ -619,6 +619,58 @@ Indice : Utilisez count($articles) pour obtenir le nombre d'éléments du tablea
     // dans le cas d'une erreur, include va déclencher un warning et la page continu de s'exécuter
     // dans le cas d'une erreur, require va déclencher une erreur fatale et bloque l'exécution du code à la suite
 
+    echo '<h2>12 - Classes et objets</h2>';
+    // Un objet est un conteneur virtuel représenté par une variable
+    // Dans un objet on aura un ensemble d'informations (propriétée ou attribut de l'objet) ainsi qu'un ensemble de fonction (méthode de l'objet)
+    // L'intérêt de l'objet c'est de regrouper des outils liés à un même sujet au même endroit
+    // Un objet PHP est toujours issu d'une classe (plan construction)
+    // Ensuite l'objet aura son existence propre
+    // Un utilisateur sur un e-commerce aura un objet panier qui ne sera pas le même qu'un autre objet panier d'un autre utilisateur
+    // Construit de la même façon mais ensuite l'objet dépend des actions des utilisateurs
+    // Par convention d'écriture, la première lettre d'une classe est toujours en majuscule
+
+    // Création d'une classe
+    class Personnage {
+        // Propriétés ou Attributs
+        public $firstname = 'Arthur';
+        public $name = 'Pendragon';
+        public $role = 'King';
+        // Méthodes
+        public function change_name($name) {
+            $this->name = $name;
+        }
+    }
+
+    // Création d'un objet personnage
+    // POur créer un objet en php, il faut utiliser le mot clé "new"
+    $personnage = new Personnage;
+
+    // Afficher les propriétées de l'objet
+    echo '<pre>';
+    print_r($personnage);
+    echo '</pre>';
+
+    // Afficher les méthodes de l'objet : get_class_methods()
+    echo '<pre>';
+    print_r(get_class_methods($personnage));
+    echo '</pre>';
+
+    // Pour piocher dans l'objet ->
+    // On change directement la valeur (possible directement car la propriétee est public sinon il faudrait passer par un setter)
+    $personnage->firstname = 'Julien';
+    $personnage->change_name('Lebron');
+
+    echo '<pre>';
+    print_r($personnage);
+    echo '</pre>';
+
+    echo 'Le prénom et le nom sont : ' . $personnage->firstname . ' ' . $personnage->name . '<br>';
+
+    $personnage2 = new Personnage;
+
+    echo '<pre>';
+    print_r($personnage2);
+    echo '</pre>';
 
     ?>
 
