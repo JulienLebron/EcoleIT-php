@@ -9,7 +9,7 @@
 <body>
 
 <div class="container-fluid d-flex justify-content-center bg-dark ">
-    <h2 class="text-light">Movies DB</h2>
+    <h2 class="text-light<QQ">Movies DB</h2>
 </div>
 
 <?php
@@ -33,7 +33,7 @@
             // echo '</pre>';
 ?>
 
-<div class="movies-container container d-flex justify-content-around flex-wrap mt-4">
+<div class="movies-container container d-flex justify-content-around flex-wrap">
     <?php
     // Affichage des films
     // On boucle sur $movies (un tableau de tableau) qui contient tous les films et à chaque tour de boucle on isole un film (qui est un tableau)
